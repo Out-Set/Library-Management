@@ -30,12 +30,7 @@ public class IssuedBookService {
 
     // Get Issued Books by Id
     public IssuedBook getIssuedBooksById(int id){
-        return issuedBookRepository.findById(id).orElse(null);
-    }
-
-    // Get Issued Books by Email
-    public Object getIssuedBooksByEmail(String email){
-        return issuedBookRepository.findByEmail(email);
+        return issuedBookRepository.findById(id);
     }
 
     // Delete a Issued Book
@@ -45,11 +40,11 @@ public class IssuedBookService {
     }
 
     // Update the Issued details
-    public IssuedBook updataIssuedBook(IssuedBook issuedBook){
+    public IssuedBook updateIssuedBook(IssuedBook issuedBook){
 
         IssuedBook existingIssuedBook;
 
-        existingIssuedBook = issuedBookRepository.findById(issuedBook.getId()).orElse(null);
+        existingIssuedBook = issuedBookRepository.findById(issuedBook.getId());
 
         existingIssuedBook.setBookId(issuedBook.getBookId());
         existingIssuedBook.setStatus(issuedBook.getStatus());
